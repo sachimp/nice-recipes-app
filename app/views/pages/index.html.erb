@@ -1,2 +1,66 @@
-<h1>Pages#index</h1>
-<p>Find me in app/views/pages/index.html.erb</p>
+<h1>Nice Recipes</h1>
+<h1>All Recipes</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>
+    <th>Cook Time (minutes)</th>
+    <th>Prep Time (minutes)</th>
+    <th>Ingredients</th>
+    <th>Ratings</th>
+    <th>Cuisine</th>
+    <th>Category</th>
+    <th>Author</th>
+<!--    <th>Image</th>-->
+  </tr>
+  </thead>
+  <tbody>
+  <% @recipes.each do |recipe| %>
+    <tr>
+      <td><%= recipe.title %></td>
+      <td><%= recipe.cook_time %></td>
+      <td><%= recipe.prep_time %></td>
+      <td><%= recipe.ingredients %></td>
+      <td><%= recipe.ratings %></td>
+      <td><%= recipe.cuisine %></td>
+      <td><%= recipe.category %></td>
+      <td><%= recipe.author %></td>
+<!--      <td>-->
+        <%# if recipe.image.present? %>
+<!--          <img src="<%#= recipe.image %>" alt="<%#= recipe.title %> image" style="max-width: 100px; max-height: 100px;">-->
+        <%# else %>
+<!--          No image available-->
+        <%# end %>
+<!--      </td>-->
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f4f4f4;
+        font-weight: bold;
+    }
+
+    tr:hover {
+        background-color: #f9f9f9;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+</style>
