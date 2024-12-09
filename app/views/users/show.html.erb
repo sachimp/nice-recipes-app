@@ -1,0 +1,29 @@
+<div class="container">
+  <%= @user.email %>
+  <h1>Favourite Recipes</h1>
+  <% if @favourite_recipes.any? %>
+    <% @favourite_recipes.each do |favourite_recipe| %>
+    <% recipe = Recipe.find(favourite_recipe.recipe_id) %>
+      <tr>
+        <td><%= recipe.title %></td>
+        <td><%= recipe.cook_time %></td>
+        <td><%= recipe.prep_time %></td>
+        <td class="ingredients">
+          <% recipe.ingredients.split(',').each do |ingredient| %>
+            <%= ingredient.strip %>
+          <% end %>
+        </td>
+        <td><%= recipe.ratings %></td>
+        <td><%= recipe.cuisine %></td>
+        <td><%= recipe.category %></td>
+        <td><%= recipe.author %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="8" class="no-results">No recipes favourited yet. Try Clicking the favourite button on the home page!</td>
+    </tr>
+  <% end %>
+
+  <%= link_to 'Back', :back %>
+</div>

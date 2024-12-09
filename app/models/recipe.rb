@@ -2,6 +2,8 @@ class Recipe < ApplicationRecord
   validates :title, :cook_time, :prep_time, :ingredients, presence: true
   validates :title, uniqueness: true
 
+  has_many :favourite_recipes
+
   def self.search_by_ingredients(ingredients)
     return all if ingredients.blank?
 

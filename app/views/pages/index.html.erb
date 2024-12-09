@@ -4,6 +4,7 @@
   <header class="header">
     <% if user_signed_in? %>
       <h1>Welcome back to Nice Recipes, <%= current_user.email %></h1>
+      <%= link_to 'My Profile and Favourite Recipes', user_path(current_user) %>
       <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
   <% else %>
       <h1>Nice Recipes</h1>
@@ -34,6 +35,9 @@
         <th>Cuisine</th>
         <th>Category</th>
         <th>Author</th>
+        <% if @user.present? %>
+          <th>Favourite</th>
+        <% end %>
       </tr>
     </thead>
     <tbody>
@@ -52,6 +56,9 @@
           <td><%= recipe.cuisine %></td>
           <td><%= recipe.category %></td>
           <td><%= recipe.author %></td>
+          <% if @user.present? %>
+            <td><%= link_to 'Add to Favourite Recipes', favourite_recipes_path(recipe_id: recipe.id), data: { turbo_method: "post" } %></td>
+          <% end %>
         </tr>
       <% end %>
     <% else %>

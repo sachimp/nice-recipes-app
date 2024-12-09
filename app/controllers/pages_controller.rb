@@ -2,6 +2,7 @@ class PagesController < ApplicationController
   include Pagy::Backend
 
   def index
+    @user = current_user
     ingredients_param = params[:ingredients]
     sort_by_params = params[:sort_by]
 
