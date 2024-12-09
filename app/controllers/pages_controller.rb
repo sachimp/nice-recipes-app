@@ -1,7 +1,12 @@
 class PagesController < ApplicationController
   include Pagy::Backend
+
   def index
-    ingredients_param = params[:ingredients] # grab the entered string from the params
-    @pagy, @recipes = pagy((Recipe.search_by_ingredients(ingredients_param)), items: 20)
+    ingredients_param = params[:ingredients]
+    sort_by_params = params[:sort_by]
+
+    recipes = Recipe.search_by_ingredients(ingredients_param)
+
+    @pagy, @recipes = pagy(recipes.sort_by_criteria(sort_by_params), items: 20)
   end
 end
