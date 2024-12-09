@@ -80,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: nice_recipes_app_production
-  username: nice_recipes_app
-  password: <%= ENV["NICE_RECIPES_APP_DATABASE_PASSWORD"] %>
+  database: nice_recipes_database
+  username: sachimp
+  password: <%= ENV["DATABASE_PASSWORD"] %>
