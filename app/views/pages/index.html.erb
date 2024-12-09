@@ -9,9 +9,11 @@
   <div class="search-bar">
     <%= form_with url: pages_index_path, method: :get, local: true, class: "search-form" do %>
       <%= text_field_tag :ingredients, params[:ingredients], placeholder: "Search by ingredients (e.g., 'chicken rice')", class: "search-input" %>
+      <%= select_tag :sort_by, options_for_select([['Prep + Cook Time', 'time'], ['Rating', 'rating']], params[:sort_by]), class: "form-select" %>
       <%= submit_tag "Search", class: "btn btn-primary search-button" %>
     <% end %>
   </div>
+
   <div class="pag-bar mt-5 pt-5">
     <%== pagy_nav(@pagy) %>
   </div>

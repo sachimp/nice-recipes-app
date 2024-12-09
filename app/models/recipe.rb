@@ -15,7 +15,17 @@ class Recipe < ApplicationRecord
     where(conditions, *values)
   end
 
-  private
+  def self.sort_by_criteria(sort_by)
+    case sort_by
+    when 'time'
+      order(Arel.sql('prep_time + cook_time ASC')) # Sort by combined prep + cook time
+    when 'rating'
+      order(ratings: :desc)
+    else
+      order(title: :asc) # Default sort, alphabetical I guess?
+    end
+  end
+
 
   private
 
