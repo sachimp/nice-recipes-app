@@ -19,16 +19,16 @@
   </div>
   <table class="recipe-table">
     <thead>
-    <tr>
-      <th>Title</th>
-      <th>Cook Time (min)</th>
-      <th>Prep Time (min)</th>
-      <th>Ingredients</th>
-      <th>Ratings</th>
-      <th>Cuisine</th>
-      <th>Category</th>
-      <th>Author</th>
-    </tr>
+      <tr>
+        <th>Title</th>
+        <th>Cook Time (min)</th>
+        <th>Prep Time (min)</th>
+        <th>Ingredients</th>
+        <th>Ratings</th>
+        <th>Cuisine</th>
+        <th>Category</th>
+        <th>Author</th>
+      </tr>
     </thead>
     <tbody>
     <% if @recipes.any? %>
@@ -37,7 +37,11 @@
           <td><%= recipe.title %></td>
           <td><%= recipe.cook_time %></td>
           <td><%= recipe.prep_time %></td>
-          <td><%= recipe.ingredients %></td>
+          <td class="ingredients">
+            <% recipe.ingredients.split(',').each do |ingredient| %>
+              <%= ingredient.strip %>
+            <% end %>
+          </td>
           <td><%= recipe.ratings %></td>
           <td><%= recipe.cuisine %></td>
           <td><%= recipe.category %></td>

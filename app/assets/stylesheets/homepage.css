@@ -1,7 +1,7 @@
 /* General Layout */
 .container {
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1200px; /* Increase the max-width for a wider layout */
     padding: 20px;
     font-family: Arial, sans-serif;
 }
@@ -54,7 +54,8 @@
 .recipe-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 10px;
+    margin-top: 20px;
+    table-layout: auto; /* Let columns size naturally */
 }
 
 .recipe-table th,
@@ -65,8 +66,13 @@
 }
 
 .recipe-table th {
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: #f4f4f4;
+    white-space: nowrap; /* Prevent headers from wrapping */
+}
+
+.recipe-table td {
+    vertical-align: top;
+    word-wrap: break-word; /* Allow content to wrap in cells */
 }
 
 .recipe-table tr:nth-child(even) {
@@ -77,8 +83,54 @@
     background-color: #f1f1f1;
 }
 
+.recipe-table td.ingredients {
+    white-space: pre-wrap; /* Preserve newlines and wrap long text */
+    font-size: 0.9rem; /* Slightly smaller font for better readability */
+    line-height: 1; /* Add spacing between lines */
+}
+
+.recipe-table th:nth-child(1), /* Title column */
+.recipe-table td:nth-child(1) {
+    width: 15%; /* Wider for title */
+}
+
+.recipe-table th:nth-child(2), /* Cook Time column */
+.recipe-table td:nth-child(2),
+.recipe-table th:nth-child(3), /* Prep Time column */
+.recipe-table td:nth-child(3) {
+    width: 10%; /* Shorter for time columns */
+}
+
+.recipe-table th:nth-child(4), /* Ingredients column */
+.recipe-table td:nth-child(4) {
+    width: 40%; /* Ingredients get more space */
+}
+
+.recipe-table th:nth-child(5), /* Ratings column */
+.recipe-table td:nth-child(5) {
+    width: 10%; /* Shorter for ratings */
+}
+
+.recipe-table th:nth-child(6), /* Cuisine column */
+.recipe-table td:nth-child(6),
+.recipe-table th:nth-child(7), /* Category column */
+.recipe-table td:nth-child(7) {
+    width: 10%; /* Shorter for cuisine and category */
+}
+
+.recipe-table th:nth-child(8), /* Author column */
+.recipe-table td:nth-child(8) {
+    width: 15%; /* Wider for author */
+}
+
 .no-results {
     text-align: center;
     color: #999;
     font-style: italic;
+}
+
+/* Pagination Bar */
+.pag-bar {
+    text-align: center;
+    margin-top: 20px;
 }
