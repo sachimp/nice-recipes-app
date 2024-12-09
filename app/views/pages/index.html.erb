@@ -2,7 +2,13 @@
 
 <div class="container">
   <header class="header">
-    <h1>Nice Recipes</h1>
+    <% if user_signed_in? %>
+      <h1>Welcome back to Nice Recipes, <%= current_user.email %></h1>
+      <%= link_to 'Sign out', destroy_user_session_path, data: { turbo_method: :delete } %>
+  <% else %>
+      <h1>Nice Recipes</h1>
+      <%= link_to 'Sign in', new_user_session_path %>
+    <% end %>
     <p class="subtitle">Find the perfect recipe by searching for ingredients you have!</p>
   </header>
 
