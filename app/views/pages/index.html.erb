@@ -12,7 +12,9 @@
       <%= submit_tag "Search", class: "btn btn-primary search-button" %>
     <% end %>
   </div>
-
+  <div class="pag-bar mt-5 pt-5">
+    <%== pagy_nav(@pagy) %>
+  </div>
   <table class="recipe-table">
     <thead>
     <tr>
@@ -47,4 +49,7 @@
     <% end %>
     </tbody>
   </table>
+  <div class="pag-bar mt-5 pt-5">
+    <%== pagy_nav(@pagy) %>
+  </div>
 </div>
