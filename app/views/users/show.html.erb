@@ -1,6 +1,21 @@
 <div class="container">
   <%= @user.email %>
   <h1>Favourite Recipes</h1>
+  <table class="recipe-table">
+    <thead>
+    <tr>
+      <th>Title</th>
+      <th>Cook Time (min)</th>
+      <th>Prep Time (min)</th>
+      <th>Ingredients</th>
+      <th>Ratings</th>
+      <th>Cuisine</th>
+      <th>Category</th>
+      <th>Author</th>
+      <th>Remove from favourites</th>
+    </tr>
+    </thead>
+    <tbody>
   <% if @favourite_recipes.any? %>
     <% @favourite_recipes.each do |favourite_recipe| %>
     <% recipe = Recipe.find(favourite_recipe.recipe_id) %>
@@ -17,6 +32,7 @@
         <td><%= recipe.cuisine %></td>
         <td><%= recipe.category %></td>
         <td><%= recipe.author %></td>
+        <td><%= link_to 'Remove from Favourite Recipes', favourite_recipe_path(id: favourite_recipe.id), data: { turbo_method: "delete" } %></td>
       </tr>
     <% end %>
   <% else %>
