@@ -1,6 +1,6 @@
-# README
+# Nice Recipes App
 
-## Nice Recipes App
+## Since I'm on a free package, the instance spins down after 10 minutes of inactivity. Please allow 1-2 minutes for it to spin up up upon visting.
 
 https://nice-recipes-app.onrender.com
 
