@@ -28,6 +28,11 @@ class Recipe < ApplicationRecord
     end
   end
 
+  def decoded_image_url
+    return unless image.present? && image.include?('url=')
+
+    CGI.unescape(image.split('url=').last)
+  end
 
   private
 
