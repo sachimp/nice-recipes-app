@@ -4,6 +4,23 @@ class Recipe < ApplicationRecord
 
   has_many :favourite_recipes
 
+  def self.filtered_and_sorted(params)
+    ingredients = params[:ingredients]
+    sort_by = params[:sort_by]
+
+    recipes = search_by_ingredients(ingredients)
+    recipes = recipes.sort_by_criteria(sort_by) if sort_by.present?
+    recipes
+  end
+
+  def decoded_image_url
+    return unless image.present? && image.include?('url=')
+
+    CGI.unescape(image.split('url=').last)
+  end
+
+  private
+
   def self.search_by_ingredients(ingredients)
     return all if ingredients.blank?
 
@@ -27,14 +44,6 @@ class Recipe < ApplicationRecord
       order(title: :asc) # Default sort, alphabetical I guess?
     end
   end
-
-  def decoded_image_url
-    return unless image.present? && image.include?('url=')
-
-    CGI.unescape(image.split('url=').last)
-  end
-
-  private
 
   def self.build_conditions(ingredients)
     # create a comparison condition and set up the query string to combine the ingredients
