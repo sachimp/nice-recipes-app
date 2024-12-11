@@ -50,6 +50,28 @@
     background-color: #0056b3;
 }
 
+.profile-button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.signout-button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
 /* Table */
 .recipe-table {
     width: 100%;

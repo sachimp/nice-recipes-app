@@ -1,7 +1,7 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
+  title: recipe_one
   cook_time: 1
   prep_time: 1
   ingredients: MyText
@@ -12,7 +12,7 @@ one:
   image: MyString
 
 two:
-  title: MyString
+  title: recipe_two
   cook_time: 1
   prep_time: 1
   ingredients: MyText
