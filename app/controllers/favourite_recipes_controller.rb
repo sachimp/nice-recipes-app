@@ -3,8 +3,13 @@ class FavouriteRecipesController < ApplicationController
   before_action :set_favourite_recipe, only: :destroy
 
   def create
-    FavouriteRecipe.create(user: current_user, recipe: @recipe)
-    redirect_to :pages_index, notice: 'Recipe was successfully added to favourites.'
+    favourite_recipe = FavouriteRecipe.new(user: current_user, recipe: @recipe)
+
+    if favourite_recipe.save
+      redirect_to :pages_index, notice: 'Recipe was successfully added to favourites.'
+    else
+      redirect_to :pages_index, notice: 'You already have this recipe favourited'
+    end
   end
 
   def destroy
