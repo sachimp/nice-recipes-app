@@ -55,7 +55,7 @@
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    table-layout: auto; /* Let columns size naturally */
+    table-layout: fixed; /* Ensure consistent column widths */
 }
 
 .recipe-table th,
@@ -63,70 +63,67 @@
     padding: 10px;
     border: 1px solid #ddd;
     text-align: left;
-}
-
-.recipe-table th {
-    background-color: #f4f4f4;
-    white-space: nowrap; /* Prevent headers from wrapping */
-}
-
-.recipe-table td {
     vertical-align: top;
-    word-wrap: break-word; /* Allow content to wrap in cells */
-}
-
-.recipe-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-.recipe-table tr:hover {
-    background-color: #f1f1f1;
-}
-
-.recipe-table td.ingredients {
-    white-space: pre-wrap; /* Preserve newlines and wrap long text */
-    font-size: 0.9rem; /* Slightly smaller font for better readability */
-    line-height: 1; /* Add spacing between lines */
+    word-wrap: break-word; /* Allow text wrapping within cells */
 }
 
 .recipe-table th:nth-child(1), /* Title column */
 .recipe-table td:nth-child(1) {
-    width: 15%; /* Wider for title */
+    width: 10%; /* Adjusted for better fit */
 }
 
 .recipe-table th:nth-child(2), /* Cook Time column */
 .recipe-table td:nth-child(2),
 .recipe-table th:nth-child(3), /* Prep Time column */
 .recipe-table td:nth-child(3) {
-    width: 10%; /* Shorter for time columns */
+    width: 8%; /* Smaller width for numeric values */
 }
 
 .recipe-table th:nth-child(4), /* Ingredients column */
 .recipe-table td:nth-child(4) {
-    width: 40%; /* Ingredients get more space */
+    width: 30%; /* Allocate more space for ingredients */
 }
 
 .recipe-table th:nth-child(5), /* Ratings column */
 .recipe-table td:nth-child(5) {
-    width: 10%; /* Shorter for ratings */
+    width: 8%; /* Smaller width for ratings */
 }
 
 .recipe-table th:nth-child(6), /* Cuisine column */
 .recipe-table td:nth-child(6),
 .recipe-table th:nth-child(7), /* Category column */
 .recipe-table td:nth-child(7) {
-    width: 10%; /* Shorter for cuisine and category */
+    width: 10%; /* Moderate width for these */
 }
 
 .recipe-table th:nth-child(8), /* Author column */
 .recipe-table td:nth-child(8) {
-    width: 15%; /* Wider for author */
+    width: 10%; /* Adjusted for better fit */
+}
+
+.recipe-table th:nth-child(9), /* Image column */
+.recipe-table td:nth-child(9) {
+    width: 12%; /* Ensure image column is wide enough */
+}
+
+.recipe-table th:nth-child(10), /* Favourite column */
+.recipe-table td:nth-child(10) {
+    width: 12%; /* Allocate enough space for buttons */
 }
 
 .no-results {
     text-align: center;
     color: #999;
     font-style: italic;
+}
+
+.recipe-image {
+    width: 100px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* Pagination Bar */
